@@ -1,13 +1,14 @@
-package com.shucan.api.entity;
+package com.shucan.api.entity.geo.city;
 
-import lombok.Data;
+
+import com.shucan.api.entity.geo.Common;
 
 /**
+ * 城市搜索
  * @author: ningkun
  * @date: 2024-03-21 11:04
  */
-@Data
-public class CityLookup {
+public class CityLookup extends Common {
 
     /**
      * 需要查询地区的名称
@@ -30,20 +31,11 @@ public class CityLookup {
 
     /**
      * 搜索范围，可设定只在某个国家或地区范围内进行搜索，国家和地区名称需使用ISO 3166 所定义的国家代码
-     * 详情请见iso3166.csv文件
+     * 详情请见LocationList下iso3166.csv文件
      * 如果不设置此参数，搜索范围将在所有城市。例如 range=cn
      */
     private String range;
 
-    /**
-     * 返回结果的数量，取值范围1-20，默认返回10个结果
-     */
-    private String number;
-
-    /**
-     * 多语言设置
-     */
-    private String lang;
 
     public String getLocation() {
         return location;
@@ -69,19 +61,4 @@ public class CityLookup {
         this.range = range;
     }
 
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public String getLang() {
-        return lang;
-    }
-
-    public void setLang(String lang) {
-        this.lang = lang;
-    }
 }

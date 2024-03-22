@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * http工具类
@@ -49,7 +52,8 @@ public class HttpUtil {
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(api);
         Class<?> clazz = entity.getClass();
         try{
-            Field[] fields = clazz.getDeclaredFields();
+            //获取属性
+            List<Field> fields = getAllFields(clazz);
             for (Field field : fields) {
                 // 设置字段为可访问，即使是私有字段也可以访问
                 field.setAccessible(true);
@@ -64,6 +68,25 @@ public class HttpUtil {
         }
         return builder.toUriString();
 
+    }
+
+    /**
+     * 获取类的所有属性
+     * @param clazz 类
+     * @return
+     */
+    public static List<Field> getAllFields(Class<?> clazz) {
+
+        // 获取当前类声明的所有字段
+        List<Field> fields = new ArrayList<>(Arrays.asList(clazz.getDeclaredFields()));
+
+        // 如果存在父类，则递归获取父类的所有字段
+        Class<?> superClass = clazz.getSuperclass();
+        if (superClass != null) {
+            fields.addAll(getAllFields(superClass));
+        }
+
+        return fields;
     }
 
     /**

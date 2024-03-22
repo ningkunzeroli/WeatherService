@@ -1,6 +1,5 @@
 package com.shucan.api.util;
 
-import com.shucan.api.entity.CityLookup;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -25,8 +25,5 @@ info:
   author: shucan
   version: 1.0.0
 
-logging:
-  level:
-    org:
-      springframework:
-        web: ERROR
+logger:
+  config: classpath:logback.xml
