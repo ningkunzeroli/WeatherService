@@ -48,6 +48,12 @@ public class CityWeatherController {
 
     }
 
+    /**
+     * 分钟级降水API（临近预报）支持中国1公里精度的未来2小时每5分钟降雨预报数据。
+     * 请求URL GET https://api.qweather.com/v7/minutely/5m?{查询参数}
+     * @param minutePrecipitation 分钟降水
+     * @return
+     */
     @PostMapping("/minutely")
     public String getMinutePrecipitationData(@RequestBody MinutePrecipitation minutePrecipitation){
 
