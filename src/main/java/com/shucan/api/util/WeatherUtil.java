@@ -21,11 +21,13 @@ public class WeatherUtil {
     private static final Logger logger  = LogManager.getLogger(WeatherUtil.class);
 
     /**
+     * 获取数据
      * @param entity 入参
      */
     public static String getApiData(Object entity,String api) {
         //处理URL
         String urlString  = HttpUtil.handleUrl(entity,api);
+        logger.info("url:{}",urlString);
         try {
             HttpURLConnection connection = HttpUtil.handleApiRequest(urlString);
             // 读取响应

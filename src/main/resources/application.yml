@@ -27,3 +27,7 @@ info:
 
 logger:
   config: classpath:logback.xml
+
+weather:
+  key: c50d8fc68ade4c6590267b3730c3e505
+  public-id: HE2403210909151725

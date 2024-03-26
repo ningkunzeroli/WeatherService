@@ -26,4 +26,14 @@ public interface ApiConstant {
      * POI范围搜索
      */
     String POI_RANGE = "https://geoapi.qweather.com/v2/poi/range";
+
+    /**
+     * 天气
+     */
+    String WEATHER = "https://devapi.qweather.com/v7/weather/";
+
+    /**
+     * 分钟级降水
+     */
+    String MINUTE_PRECIPITATION="https://devapi.qweather.com/v7/minutely/5m";
 }
